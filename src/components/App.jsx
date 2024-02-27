@@ -11,21 +11,9 @@ export class App extends Component {
     bad: 0,
   };
 
-  handleClickGood = () => {
-    this.setState(prevstate => {
-      return { good: (prevstate.good += 1) };
-    });
-  };
-
-  handleClickNeutral = () => {
-    this.setState(prevstate => {
-      return { neutral: (prevstate.neutral += 1) };
-    });
-  };
-
-  handleClickBad = () => {
-    this.setState(prevstate => {
-      return { bad: (prevstate.bad += 1) };
+  handleClick = option => {
+    this.setState(prevState => {
+      return { [option]: prevState[option] + 1 };
     });
   };
 
@@ -50,10 +38,8 @@ export class App extends Component {
       <div className="main-container">
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options=""
-            onLeaveGoodFeedback={this.handleClickGood}
-            onLeaveNeutralFeedback={this.handleClickNeutral}
-            onLeaveBadFeedback={this.handleClickBad}
+            options={['good', 'neutral', 'bad']}
+            onLeaveFeedback={this.handleClick}
           />
           {this.countPositiveFeedbackPercentage() > 0 && (
             <Statistics

@@ -14,9 +14,11 @@ export const Button = styled.button`
   height: 30px;
   font-size: 18px;
   font-weight: 600;
+  text-transform: capitalize;
   color: rgba(79, 75, 79, 1);
   border: 1px solid grey;
   border-radius: 10px;
   background-color: aliceblue;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  &:hover {background-color: #abcdef}
 `;
