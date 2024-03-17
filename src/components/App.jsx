@@ -41,7 +41,7 @@ export class App extends Component {
             options={['good', 'neutral', 'bad']}
             onLeaveFeedback={this.handleClick}
           />
-          {this.countPositiveFeedbackPercentage() > 0 && (
+          {this.countTotalFeedback() > 0 && (
             <Statistics
               title="Statistics"
               good={this.state.good}
@@ -51,7 +51,7 @@ export class App extends Component {
               positivePercentage={this.countPositiveFeedbackPercentage()}
             />
           )}
-          {this.countPositiveFeedbackPercentage() === 0 && <Notification />}
+          {this.countTotalFeedback() === 0 && <Notification />}
         </Section>
       </div>
     );
